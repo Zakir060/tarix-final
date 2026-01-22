@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Multikulturalizm – 100 Suallıq Test</title>
+  <style>
+    :root{
+      --bg1:#0b1220;
+      --bg2:#0f1a33;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.08);
+      --text:#eaf0ff;
+      --muted: rgba(234,240,255,.72);
+      --border: rgba(255,255,255,.12);
+      --accent:#7c5cff;
+      --accent2:#00d3a7;
+      --danger:#ff4d6d;
+      --ok:#31d07d;
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    [data-theme="light"]{
+      --bg1:#f5f7ff;
+      --bg2:#eef2ff;
+      --card: rgba(10,25,60,.06);
+      --card2: rgba(10,25,60,.08);
+      --text:#0b1220;
+      --muted: rgba(11,18,32,.70);
+      --border: rgba(11,18,32,.12);
+      --shadow: 0 18px 50px rgba(10,25,60,.14);
+      --accent:#5a3dff;
+      --accent2:#00a38b;
+      --danger:#d81b60;
+      --ok:#1b9e57;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 15% 10%, rgba(124,92,255,.35), transparent 60%),
+        radial-gradient(1000px 600px at 90% 25%, rgba(0,211,167,.28), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+    .wrap{width:min(1060px, 100%);}
+
+    header{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:14px;
+      flex-wrap:wrap;
+    }
+    .brand{
+      display:flex; gap:12px; align-items:center;
+      min-width: 280px;
+    }
+    .logo{
+      width:42px; height:42px; border-radius:14px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.20), transparent 60%),
+        linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: var(--shadow);
+    }
+    .title h1{font-size:18px; margin:0; letter-spacing:.2px}
+    .title p{margin:2px 0 0; color:var(--muted); font-size:13px}
+
+    .top-actions{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+    .pill{
+      border:1px solid var(--border);
+      background:var(--card);
+      padding:10px 12px;
+      border-radius:999px;
+      display:flex; gap:8px; align-items:center;
+      box-shadow: 0 10px 25px rgba(0,0,0,.12);
+      backdrop-filter: blur(8px);
+    }
+    .pill small{color:var(--muted)}
+    .btn{
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:12px;
+      cursor:pointer;
+      transition:.15s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.20)}
+    .btn.primary{
+      border-color: rgba(124,92,255,.45);
+      background: linear-gradient(135deg, rgba(124,92,255,.55), rgba(0,211,167,.35));
+    }
+    .btn.danger{
+      border-color: rgba(255,77,109,.45);
+      background: linear-gradient(135deg, rgba(255,77,109,.45), rgba(255,255,255,.06));
+    }
+    .btn:disabled{
+      opacity:.55;
+      cursor:not-allowed;
+      transform:none;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:14px;
+    }
+    @media (max-width: 900px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    .card{
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, var(--card2), var(--card));
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .card h2{margin:0 0 10px; font-size:16px}
+    .muted{color:var(--muted)}
+    .row{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+
+    .progress{
+      height:10px;
+      background: rgba(255,255,255,.08);
+      border:1px solid var(--border);
+      border-radius:999px;
+      overflow:hidden;
+    }
+    .bar{
+      height:100%;
+      width:0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: width .25s ease;
+    }
+
+    .qmeta{
+      display:flex; gap:10px; align-items:center; justify-content:space-between;
+      margin-bottom:10px;
+      flex-wrap:wrap;
+    }
+    .qnum{
+      display:flex; gap:8px; align-items:center;
+      font-weight:600;
+      flex-wrap:wrap;
+    }
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      border-radius:10px;
+      padding:6px 8px;
+    }
+
+    .question{
+      font-size:18px;
+      line-height:1.35;
+      margin: 6px 0 14px;
+    }
+
+    .options{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+
+    /* Telefon üçün TAM single-column (variantlar 1 sütun) */
+    @media (max-width: 780px){
+      .options{grid-template-columns:1fr;}
+    }
+
+    .opt{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      padding:12px 12px;
+      border-radius:14px;
+      cursor:pointer;
+      transition:.15s ease;
+      display:flex; gap:10px; align-items:flex-start;
+      min-height:56px;
+    }
+    .opt:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.22)}
+    .badge{
+      width:28px; height:28px; border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(255,255,255,.10);
+      border:1px solid var(--border);
+      font-weight:700;
+      flex: 0 0 28px;
+    }
+    .opt .txt{line-height:1.25}
+    .opt.selected{outline: 2px solid rgba(124,92,255,.55); border-color: rgba(124,92,255,.55)}
+    .opt.correct{outline: 2px solid rgba(49,208,125,.65); border-color: rgba(49,208,125,.65); background: rgba(49,208,125,.12)}
+    .opt.wrong{outline: 2px solid rgba(255,77,109,.65); border-color: rgba(255,77,109,.65); background: rgba(255,77,109,.12)}
+
+    .footer-actions{
+      display:flex;
+      gap:10px;
+      justify-content:space-between;
+      align-items:center;
+      margin-top:14px;
+      flex-wrap:wrap;
+    }
+    .small{font-size:12px; color:var(--muted)}
+    .divider{height:1px; background: var(--border); margin:10px 0}
+    .stat{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:8px;
+    }
+    .stat .box{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      border-radius:14px;
+      padding:12px;
+    }
+    .stat .box b{font-size:16px}
+    .list{
+      max-height: 300px;
+      overflow:auto;
+      padding-right:6px;
+    }
+    .item{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.05);
+      border-radius:14px;
+      padding:10px 12px;
+      margin-bottom:10px;
+      cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .item:hover{border-color: rgba(255,255,255,.22)}
+    .item .t{font-weight:700; margin-bottom:6px}
+    .tag{
+      display:inline-flex;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:12px;
+      margin-left:8px;
+      white-space:nowrap;
+    }
+    .hint{
+      border-left: 3px solid rgba(124,92,255,.65);
+      padding:10px 12px;
+      background: rgba(124,92,255,.10);
+      border-radius:14px;
+      color:var(--muted);
+      margin-top:10px;
+      font-size:13px;
+      line-height:1.35;
+    }
+
+    /* Search UI */
+    .input{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      outline:none;
+    }
+    .input::placeholder{color: rgba(234,240,255,.55)}
+    [data-theme="light"] .input::placeholder{color: rgba(11,18,32,.45)}
+    .searchRow{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      margin-top:10px;
+    }
+    .searchMeta{
+      margin-top:8px;
+      font-size:12px;
+      color: var(--muted);
+    }
+
+    /* Telefon optimizasiya */
+    @media (max-width: 520px){
+      body{padding:14px;}
+      .card{padding:14px;}
+      .question{font-size:17px;}
+      .btn{padding:11px 12px;}
+      .opt{min-height:60px;}
+      .list{max-height: 240px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo"></div>
+        <div class="title">
+          <h1>Multikulturalizm – 100 Suallıq Test</h1>
+          <p>Variantlar hər dəfə qarışdırılır • A/B/C/D ilə cavabla • Axtarışla sualı tap</p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <div class="pill">
+          <small>Rejim:</small>
+          <button class="btn" id="modeBtn" title="Məşq/İmtahan rejimi dəyiş">Məşq</button>
+        </div>
+        <button class="btn" id="themeBtn" title="Dark/Light">🌙 Tema</button>
+        <button class="btn danger" id="resetBtn" title="Sıfırla">↺ Sıfırla</button>
+      </div>
+    </header>
+
+    <div class="grid">
+      <main class="card">
+        <div class="qmeta">
+          <div class="qnum">
+            <span class="tag">Sual ID: <span id="qId">1</span></span>
+            <span id="qIndex">1</span>/<span id="qTotal">100</span>
+            <span class="tag" id="modeTag">Məşq</span>
+          </div>
+          <div class="row">
+            <span class="kbd">A</span><span class="kbd">B</span><span class="kbd">C</span><span class="kbd">D</span>
+          </div>
+        </div>
+        <div class="progress" aria-label="progress">
+          <div class="bar" id="bar"></div>
+        </div>
+
+        <div class="question" id="questionText"></div>
+
+        <div class="options" id="options"></div>
+
+        <div class="hint" id="hintBox" style="display:none"></div>
+
+        <div class="footer-actions">
+          <div class="small" id="statusText">Seçimini et.</div>
+          <div class="row">
+            <button class="btn" id="prevBtn">← Əvvəlki</button>
+            <button class="btn primary" id="nextBtn">Növbəti →</button>
+          </div>
+        </div>
+      </main>
+
+      <aside class="card">
+        <h2>Sual axtarışı</h2>
+        <p class="muted">Sual nömrəsi (məs: <b>58</b>) və ya açar söz (məs: <b>Kymlicka</b>, <b>UNESCO</b>) yaz.</p>
+
+        <input class="input" id="searchInput" placeholder="Məs: 58 və ya 'Kymlicka'..." />
+        <div class="searchRow">
+          <button class="btn primary" id="searchBtn">🔎 Axtar</button>
+          <button class="btn" id="clearSearchBtn">✕ Təmizlə</button>
+        </div>
+        <div class="searchMeta" id="searchMeta">Axtarış nəticələri burada görünəcək.</div>
+
+        <div class="divider"></div>
+
+        <h2>Nəticə paneli</h2>
+        <p class="muted">İmtahan rejimində nəticə sonda hesablanır. Məşq rejimində dərhal cavabı görürsən.</p>
+
+        <div class="stat">
+          <div class="box">
+            <div class="muted">Doğru</div>
+            <b id="correctCount">0</b>
+          </div>
+          <div class="box">
+            <div class="muted">Yanlış</div>
+            <b id="wrongCount">0</b>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="row" style="justify-content:space-between">
+          <h2 style="margin:0;font-size:14px">Səhv cavablar</h2>
+          <button class="btn" id="finishBtn">✅ Bitir & Nəticə</button>
+        </div>
+        <p class="small">Aşağıda səhv etdiyin suallara toxunaraq həmin suala keçə bilərsən.</p>
+
+        <div class="list" id="reviewList"></div>
+
+        <div class="divider"></div>
+        <h2 style="font-size:14px;margin:0 0 10px;">Axtarış nəticələri</h2>
+        <div class="list" id="searchResults"></div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    // ====== Utility ======
+    const LETTERS = ["A","B","C","D"];
+    const $ = (id)=>document.getElementById(id);
+
+    function shuffle(arr){
+      const a = arr.slice();
+      for(let i=a.length-1;i>0;i--){
+        const j = Math.floor(Math.random()*(i+1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    // ====== Questions (100) ======
+    const QUESTIONS = [
+      {id:1, q:"“Multikulturalizm” sözünün geniş mənası hansı anlayışa bərabərdir?", correct:"Mədəni müxtəliflik.", distractors:["Siyasi inteqrasiya.","İrqi üstünlük nəzəriyyəsi.","Assimilyasiya siyasəti."]},
+      {id:2, q:"Multikulturalizmin dar mənası nəyə aiddir?", correct:"Dövlət siyasətinə.", distractors:["Dini ayinlərə.","Mədəni izolyasiyaya.","Etnik təmizləməyə."]},
+      {id:3, q:"Multikulturalizm hansı elmlərin müddəalarına əsaslanan interdissiplinar fəndir?", correct:"Fəlsəfə, sosiologiya, politologiya, hüquq və tarix.", distractors:["Riyaziyyat, fizika, kimya, biologiya və astronomiya.","Tibb, farmakologiya, anatomiya, genetika və cərrahiyyə.","İqtisadiyyat, mühasibat, marketinq, menecment və logistika."]},
+      {id:4, q:"“Multikulturalizmə giriş” fənninin əsas məqsədi nədir?", correct:"Multikultural dəyərlərin aşılanması.", distractors:["Yalnız dini biliklərin artırılması.","Hər mədəniyyətin digərlərindən üstünlüyünü sübut etmək.","Miqrasiyanın qadağan edilməsini əsaslandırmaq."]},
+      {id:5, q:"Multikulturalizmin sosial hadisə kimi formalaşmasına təsir edən amillərdən biri hansıdır?", correct:"Miqrasiya.", distractors:["Təkdillilik siyasəti.","Sərt senzura.","İqtisadi autarkiya."]},
+      {id:6, q:"Etimologiyasında “multi” və “kultura” sözlərinin birləşməsi olan termin hansıdır?", correct:"Multikulturalizm.", distractors:["Monokulturalizm.","Pluralizm.","Assimilyasiya."]},
+      {id:7, q:"Dyumoçelə görə multikulturalizm termininin birinci mənası nəyi xarakterizə edir?", correct:"Cəmiyyətdə mədəni müxtəlifliyin mövcudluğunu.", distractors:["Vahid milli kimliyin məcburi formalaşdırılmasını.","İrqlər arasında bioloji fərqlərin əsas götürülməsini.","Dövlətin yalnız bir dini rəsmi tanımasını."]},
+      {id:8, q:"Multikulturalizmin liberal yanaşmasının öncüllərindən biri kimdir?", correct:"Will Kymlicka.", distractors:["Karl Marx.","Auguste Comte.","Max Weber."]},
+      {id:9, q:"Kommunitarizm yanaşması nəyə əsaslanır?", correct:"İcma və kollektiv dəyərlərə.", distractors:["Yalnız fərdi hüquqların üstünlüyünə.","Hər icmanın ayrılıb dövlət qurmasına.","Mədəni fərqlərin ləğvinə."]},
+      {id:10, q:"Qəbələ rayonunun Nic kəndində kompakt şəkildə hansı etnos yaşayır?", correct:"Udinlər.", distractors:["Lezginlər.","Talışlar.","Avərlər."]},
+      {id:11, q:"Azərbaycan multikulturalizminin formalaşmasına təsir edən obyektiv səbəblərdən biri hansıdır?", correct:"Coğrafi mövqe.", distractors:["Təkpartiyalı siyasi sistem.","İqlim izolyasiyası.","Sərt dini monolitlik."]},
+      {id:12, q:"Multikulturalizm siyasətinin mahiyyəti nəyə yönəlir?", correct:"Mədəni müxtəlifliyin qorunmasına.", distractors:["Mədəni fərqlərin tam aradan qaldırılmasına.","Yalnız bir dilin məcburi tətbiqinə.","İcma hüquqlarının ləğvinə."]},
+      {id:13, q:"Bakıda ilk rus-müsəlman qız məktəbini tikdirən milyonçu kimdir?", correct:"Hacı Zeynalabdin Tağıyev.", distractors:["Musa Nağıyev.","Şəmsi Əsədullayev.","Mirzə Fətəli Axundzadə."]},
+      {id:14, q:"Multikulturalizmin zəif və güclü formaları hansı nəzəriyyələrə əsaslanır?", correct:"Liberal və kommunitar nəzəriyyələrə.", distractors:["Marksist və neoliberal nəzəriyyələrə.","Realist və konstruktivist nəzəriyyələrə.","Funk­sionalist və biheviorist nəzəriyyələrə."]},
+      {id:15, q:"Din fərdi dünyagörüşün hansı formasıdır?", correct:"Dini dünyagörüş formasıdır.", distractors:["Elmi dünyagörüş formasıdır.","Mifoloji dünyagörüş formasıdır.","Gündəlik-məişət dünyagörüş formasıdır."]},
+      {id:16, q:"1918-ci il mayın 28-də Azərbaycanın istiqlaliyyətini elan edən dövlət hansıdır?", correct:"Azərbaycan Xalq Cümhuriyyəti.", distractors:["SSRİ Azərbaycan Respublikası.","Qafqaz İslam Ordusu.","Azərbaycan SSR."]},
+      {id:17, q:"Xristianlıqda əsas təlim nə üzərində qurulub?", correct:"İsa Məsihin təlimi üzərində.", distractors:["Musanın qanunları üzərində.","Buddhanın nəsihətləri üzərində.","Konfutsinin etikası üzərində."]},
+      {id:18, q:"Hinduizmdə əsas anlayışlardan biri hansıdır?", correct:"Karma.", distractors:["Şəriət.","Trinitarizm.","Səkkizqat yol."]},
+      {id:19, q:"Ruhların mövcudluğuna və təbiət qüvvələrinin fövqəltəbii gücünə inam nə adlanır?", correct:"Animizm.", distractors:["Fetişizm.","Totemizm.","Ateizm."]},
+      {id:20, q:"Zərdüştiliyin əsas prinsipləri hansılardır?", correct:"Xeyir fikir, xeyir söz, xeyir əməl.", distractors:["Mərhəmət, zəkat, həcc.","Məbudlara qurban, ritual təmizlik, kasta itaəti.","İman, ümid, sevgi."]},
+      {id:21, q:"“Multikulturalizmə giriş” fənninin ən mühüm funksiyalarından biri hansıdır?", correct:"Maarifləndirici funksiyası.", distractors:["Senzura funksiyası.","Assimilyasiya funksiyası.","İzolyasiya funksiyası."]},
+      {id:22, q:"Azərbaycanda multikultural mühitin güclənməsinə səbəb olan faktor hansıdır?", correct:"Dövlət siyasəti.", distractors:["Etnik icmaların qadağan olunması.","Dini təşkilatların tam ləğvi.","Miqrasiyanın sıfırlanması."]},
+      {id:23, q:"Multikulturalizm ən çox hansı hallarda iflasa uğrayır?", correct:"Assimilyasiya zamanı.", distractors:["Hüquqi bərabərlik zamanı.","Mədəni dialoq zamanı.","İnteqrasiya dəstəyi zamanı."]},
+      {id:24, q:"Azərbaycan Prezidenti İlham Əliyevin başlatdığı “Bakı Prosesi” nəyi təşviq edirdi?", correct:"Mədəniyyətlərarası dialoqu.", distractors:["Hərbi bloklaşmanı.","Milli izolyasiyanı.","Bir dilli təhsili."]},
+      {id:25, q:"Avropada multikulturalizmin tənqidində feministlər nəyi qabardır?", correct:"Qadın hüquqlarının pozulmasını.", distractors:["Vergi sisteminin qeyri-sabitliyini.","Dəniz ticarətinin azalmasını.","Aqrar islahatların gecikməsini."]},
+      {id:26, q:"Qərb ölkələrində multikulturalizmin çətinliyinin əsas səbəbi nədir?", correct:"Miqrantların inteqrasiya problemləri.", distractors:["Təhsil sisteminin ləğvi.","Sərhədlərin tam bağlanması.","Mədəni müxtəlifliyin olmaması."]},
+      {id:27, q:"Zərdüştilik hansı Tanrını yeganə yaradıcı elan etmişdir?", correct:"Ahura Mazda.", distractors:["Zeus.","Brahma.","Yahve."]},
+      {id:28, q:"Zərdüştiliyin dualist xarakteri nəyi bildirir?", correct:"Xeyir və şərin mübarizəsini.", distractors:["Yalnız xeyirin mövcudluğunu.","Bir neçə tanrının bərabərliyini.","Dövlət və dinin ayrılığını."]},
+      {id:29, q:"Multikulturalizmin Avropada iflasa uğradığını deyən dövlət başçısı kimdir?", correct:"Angela Merkel.", distractors:["Emmanuel Macron.","Barack Obama.","David Cameron."]},
+      {id:30, q:"Dinlərin təsnifatında İslam hansı qrupa daxildir?", correct:"Səmavi dinlərə.", distractors:["Şərq fəlsəfi təlimlərinə.","Etnik qəbilə dinlərinə.","Polyteist dinlərə."]},
+      {id:31, q:"Hinduizm hansı xüsusiyyətə malikdir?", correct:"Çoxallahlılığa.", distractors:["Tam təkallahlılığa.","Ateist dünyagörüşə.","İkiallahlılığa."]},
+      {id:32, q:"Yəhudiliyin əsas müqəddəs mətni hansıdır?", correct:"Tövrat.", distractors:["İncil.","Qurani-Kərim.","Avesta."]},
+      {id:33, q:"Azərbaycanda multikulturalizm dövlət siyasəti kimi kim tərəfindən əsaslandırılmışdır?", correct:"Heydər Əliyev.", distractors:["Nəsimi.","Cavad xan.","M.Ə.Rəsulzadə."]},
+      {id:34, q:"Coğrafi amilin multikultural mühitə təsiri nədən ibarətdir?", correct:"Xalqların təmasda olmasından.", distractors:["Bir regionda yalnız bir etnosun yaşamasından.","Dəniz səviyyəsinin dəyişməsindən.","Şəhərlərin tam boşalmasından."]},
+      {id:35, q:"Çoxmədəniyyətliliyə daxil olmayan anlayış hansıdır?", correct:"Assimilyasiya.", distractors:["Mədəni müxtəliflik.","Tolerantlıq.","Pluralizm."]},
+      {id:36, q:"XIX əsrdə Rusiyanın köçürdüyü xristianlar hansı məzhəbə mənsub idi?", correct:"Pravoslav.", distractors:["Katolik.","Protestant.","Qriqoryan."]},
+      {id:37, q:"Azərbaycan əhalisi nə zaman İslam dinini qəbul etmişdir?", correct:"VII əsrdə.", distractors:["III əsrdə.","XII əsrdə.","XVI əsrdə."]},
+      {id:38, q:"Avropada multikulturalizmin əsas problemi nədir?", correct:"İnteqrasiya problemləri.", distractors:["Mədəniyyətlərarası dialoqun çox güclü olması.","Azlıqların hüquqlarının həddindən artıq geniş olması.","Dövlətin mədəni dəstəyinin artıq olması."]},
+      {id:39, q:"Qədim türklərdə ən müqəddəs ünsürlərdən biri hansıdır?", correct:"Od.", distractors:["Duz.","Qızıl.","Suvarma kanalı."]},
+      {id:40, q:"Zərdüştilərin müasir dövrdə yaşadıqları ərazi haradır?", correct:"İran və Hindistan.", distractors:["Skandinaviya və Kanada.","Yaponiya və Koreya.","Mərakeş və İspaniya."]},
+      {id:41, q:"Etnosların formalaşmasına təsir edən əsas amil hansıdır?", correct:"Dil.", distractors:["Tək bir iqlim tipi.","Yalnız coğrafi yüksəklik.","Tam təsadüfi seçim."]},
+      {id:42, q:"Multikulturalizm siyasətinin uğurla tətbiqi üçün əsas şərt nədir?", correct:"Hüquqi bərabərlik.", distractors:["İcma hüquqlarının ləğvi.","Bir dinin məcburi seçilməsi.","Mədəni qadağalar."]},
+      {id:43, q:"Multikultural ədalətin normativ tələbini irəli sürən alim kimdir?", correct:"Will Kymlicka.", distractors:["John Locke.","Thomas Hobbes.","Jean-Jacques Rousseau."]},
+      {id:44, q:"Dövlət multikulturalizm siyasətində nəyi əsas götürməlidir?", correct:"İnsan hüquqlarını.", distractors:["Yalnız iqtisadi göstəriciləri.","Yalnız hərbi üstünlüyü.","Etnik üstünlük ideyasını."]},
+      {id:45, q:"Multikulturalizmin Azərbaycan modeli nəyə əsaslanır?", correct:"Tolerantlıq və tarixi ənənələrə.", distractors:["Etnik qapalılığa.","Mədəni qadağalara.","İrqi ayrı-seçkiliyə."]},
+      {id:46, q:"Fetişizm nədir?", correct:"Əşyaların müqəddəsləşdirilməsidir.", distractors:["Ruhlara inamdır.","Heyvana sitayişdir.","Təkallahlılıqdır."]},
+      {id:47, q:"Zərdüştiliyin geniş yayıldığı regionlardan biri hansıdır?", correct:"Azərbaycan.", distractors:["Antarktida.","Okeaniya adaları.","Sakit okeanın ortası."]},
+      {id:48, q:"Hinduizmdə karmanın mahiyyəti nədir?", correct:"Əməllərə görə taleyin müəyyənləşməsidir.", distractors:["Yalnız ibadət qaydaları toplusudur.","Tək tanrı anlayışıdır.","Maddi var-dövlətin ölçüsüdür."]},
+      {id:49, q:"Ulu öndər Heydər Əliyev multikulturalizmin hansı model olduğunu sübut etmişdir?", correct:"Ən optimal siyasi model olduğunu.", distractors:["Müvəqqəti böhran modeli olduğunu.","İzolyasiya modeli olduğunu.","Aparteid modeli olduğunu."]},
+      {id:50, q:"Xristianlığın müqəddəs kitabı necə adlanır?", correct:"İncil.", distractors:["Tövrat.","Qurani-Kərim.","Avesta."]},
+      {id:51, q:"Etnik birlik nədir?", correct:"Ortaq mənşə, dil və mədəniyyətə malik insan birliyidir.", distractors:["Yalnız eyni peşəyə malik insanların birliyidir.","Yalnız eyni şəhərdə yaşayanların təsadüfi birliyidir.","Yalnız iqtisadi maraqlara görə qurulan ittifaqdır."]},
+      {id:52, q:"Multikulturalizmin sosial hadisə kimi təsviri nəyə əsaslanır?", correct:"Cəmiyyətdə mədəni müxtəlifliyin mövcudluğuna.", distractors:["Vahid dildə danışmağa məcbur etməyə.","İcma mədəniyyətlərini ləğv etməyə.","Dini qadağalar tətbiq etməyə."]},
+      {id:53, q:"Liberal multikulturalizmin əsas ideyası nədir?", correct:"Fərdi hüquq və azadlıqların qorunması.", distractors:["Kollektiv hüquqların fərdi hüquqlardan üstün tutulması.","Mədəni fərqlərin qadağan edilməsi.","Miqrantların hüquqsuz saxlanması."]},
+      {id:54, q:"Kommunitarizm cəmiyyətin hansı tərəfinə üstünlük verir?", correct:"İcma və kollektiv dəyərlərə.", distractors:["Tam fərdiyyətçiliyə.","Etnik təcridə.","Qlobal vahid mədəniyyətə."]},
+      {id:55, q:"Azərbaycan multikulturalizminin formalaşmasında subyektiv amillərdən biri hansıdır?", correct:"Siyasi liderlik.", distractors:["Yer kürəsinin meyli.","Dəniz axınları.","Bitki örtüyünün rəngi."]},
+      {id:56, q:"“Bu gün multikulturalizmin dünyada alternativi yoxdur” fikri kimə aiddir?", correct:"İlham Əliyevə.", distractors:["Angela Merkelə.","Vladimir Putinə.","Ban Ki-moon-a."]},
+      {id:57, q:"Ayrı-seçkiliyin qurbanları əsasən hansı ölkələrdə daha çox qorunur?", correct:"Demokratik ölkələrdə.", distractors:["Totalitar ölkələrdə.","Müharibə vəziyyətində olan ölkələrdə.","Hüquqi sistemi olmayan ölkələrdə."]},
+      {id:58, q:"Bakı Beynəlxalq Multikulturalizm Mərkəzi nə vaxt yaradılmışdır?", correct:"2014-cü ildə.", distractors:["2004-cü ildə.","2010-cu ildə.","2018-ci ildə."]},
+      {id:59, q:"Zərdüştilik nə zaman Azərbaycanda nüfuzunu itirməyə başlamışdır?", correct:"VII əsrdən sonra.", distractors:["I əsrdən sonra.","XIV əsrdən sonra.","XX əsrdən sonra."]},
+      {id:60, q:"Yəhudiliyin əsas ideyalarından biri hansıdır?", correct:"Seçilmiş xalq ideyası.", distractors:["Reinkarnasiya ideyası.","Üçləmə (Trinitet) ideyası.","Kasta sistemi ideyası."]},
+      {id:61, q:"Multikulturalizm siyasətinin əsas funksiyalarından biri hansıdır?", correct:"İnteqrasiya funksiyası.", distractors:["Ayrı-seçkilik funksiyası.","Assimilyasiya funksiyası.","Aparteid funksiyası."]},
+      {id:62, q:"Multikulturalizm anlayışının formalaşmasına ən çox təsir edən hadisələrdən biri hansıdır?", correct:"Miqrasiya prosesləri.", distractors:["Sərhədlərin tam bağlanması.","Mədəniyyətlərarası əlaqələrin kəsilməsi.","Dillərin qadağan edilməsi."]},
+      {id:63, q:"İslamın əsas dini mənbələrindən biri hansıdır?", correct:"Qurani-Kərim.", distractors:["Avesta.","Veda.","İncil."]},
+      {id:64, q:"Hinduizmdə ruhun yenidən doğulması nə adlanır?", correct:"Reinkarnasiya.", distractors:["Vəhy.","Sakrament.","Mərasim."]},
+      {id:65, q:"Xristianlıq ilk əvvəl hansı bölgədə yayılmışdır?", correct:"Yaxın Şərqdə.", distractors:["Cənubi Amerikada.","Skandinaviya ölkələrində.","Avstraliyada."]},
+      {id:66, q:"Multikulturalizmi dövlət siyasəti kimi qəbul edən nadir ölkələrdən biri hansıdır?", correct:"Azərbaycan.", distractors:["Şimali Koreya.","Səudiyyə Ərəbistanı.","İslandiya."]},
+      {id:67, q:"Qəbilə və tayfanı fərqləndirən cəhətlər hansılardır?", correct:"Qəbilə qan qohumluğuna, tayfa isə siyasi birliyə əsaslanır.", distractors:["Qəbilə yalnız şəhərdə, tayfa yalnız kənddə olur.","Qəbilə yalnız dini, tayfa yalnız iqtisadi birlikdir.","Qəbilə və tayfa arasında heç bir fərq yoxdur."]},
+      {id:68, q:"Totemizm nədir?", correct:"Heyvan və ya təbiət ünsürünə sitayişdir.", distractors:["Əşyaların müqəddəsləşdirilməsidir.","Ruhlara və spiritlərə inamdır.","Tək tanrı inancıdır."]},
+      {id:69, q:"Dünya üzrə müsəlmanların sayı təqribən nə qədərdir?", correct:"Təxminən 2 milyard.", distractors:["Təxminən 200 milyon.","Təxminən 600 milyon.","Təxminən 4 milyard."]},
+      {id:70, q:"Azərbaycanda multikultural həyat tərzi ən çox hansı amilə bağlıdır?", correct:"Tarixi tolerantlıq ənənələrinə.", distractors:["Etnik qadağalara.","Mədəni izolyasiyaya.","İcma hüquqlarının məhdudlaşdırılmasına."]},
+      {id:71, q:"Multikulturalizmə görə mədəni müxtəliflik nədir?", correct:"Mədəni fərqlərin birgə mövcudluğudur.", distractors:["Mədəniyyətlərin məcburi eyniləşdirilməsidir.","Yalnız bir mədəniyyətin üstünlüyüdür.","Fərqlərin qanunla qadağan edilməsidir."]},
+      {id:72, q:"Azərbaycan Respublikası neçənci ildə BMT-nin üzvü olmuşdur?", correct:"1992-ci ildə.", distractors:["1988-ci ildə.","1995-ci ildə.","2001-ci ildə."]},
+      {id:73, q:"İnsan Hüquqları haqqında Ümumi Bəyannamənin prinsipləri hansı konstitusiyada əksini tapmışdır?", correct:"Azərbaycan Respublikasının Konstitusiyasında.", distractors:["Roma hüququnda.","ABŞ-ın Müstəqillik Bəyannaməsində.","Fransa İmperiya Konstitusiyasında."]},
+      {id:74, q:"Multikulturalizmin səmərəli siyasət modeli kimi xarakteri nəyə əsaslanır?", correct:"İnsan hüquqlarına və bərabərliyə.", distractors:["Etnik üstünlüyə.","Mədəni qadağalara.","Ayrı-seçkiliyə."]},
+      {id:75, q:"Azərbaycanın müstəqillikdən sonra ilk üzv olduğu beynəlxalq təşkilat hansıdır?", correct:"İslam Əməkdaşlıq Təşkilatı.", distractors:["NATO.","Avropa İttifaqı.","ASEAN."]},
+      {id:76, q:"Qədim türklərdə Şamanın əsas funksiyası nə idi?", correct:"Ruhlarla əlaqə yaratmaq.", distractors:["Vergi toplamaq.","Ordunu idarə etmək.","Ticarət karvanlarını qorumaq."]},
+      {id:77, q:"UNESCO təşkilatı hansı sahədə fəaliyyət göstərir?", correct:"Təhsil, elm və mədəniyyət sahəsində.", distractors:["Yalnız hərbi təhlükəsizlik sahəsində.","Yalnız valyuta və bank sahəsində.","Yalnız enerji və neft sahəsində."]},
+      {id:78, q:"Multikultural mühit nə zaman daha güclü olur?", correct:"Hüquq bərabərliyi təmin edildikdə.", distractors:["Azlıqların hüquqları ləğv edildikdə.","Bir dil məcburi tətbiq edildikdə.","Mədəniyyətlər qadağan edildikdə."]},
+      {id:79, q:"Assimilyasiya siyasəti nədir?", correct:"Azlıqların mədəniyyətinin ləğv edilməsidir.", distractors:["Mədəniyyətlərin qorunması siyasətidir.","Azlıqların hüquqlarının genişləndirilməsidir.","Mədəni dialoqun təşviqidir."]},
+      {id:80, q:"İzolyasiya siyasəti ilə aparteid siyasətinin fərqi nədir?", correct:"Aparteid irqi, izolyasiya isə ümumi təcridə əsaslanır.", distractors:["Aparteid və izolyasiya eyni anlayışdır.","İzolyasiya irqi, aparteid isə iqtisadi təcriddir.","Aparteid yalnız mədəni, izolyasiya yalnız dini fərqə əsaslanır."]},
+      {id:81, q:"Etnik müxtəliflik nəyi ifadə edir?", correct:"Müxtəlif etnosların birgə mövcudluğunu.", distractors:["Yalnız bir etnosun üstünlüyünü.","Etnosların məcburi köçürülməsini.","Etnik qrupların qadağan edilməsini."]},
+      {id:82, q:"Multikulturalizm hansı halda uğurlu olur?", correct:"Dövlət dəstəyi olduqda.", distractors:["Mədəniyyətlər qadağan edildikdə.","Hüquqi bərabərlik pozulduqda.","İcma institutları dağıdıldıqda."]},
+      {id:83, q:"Antisemitizm nədir?", correct:"Yəhudilərə qarşı nifrət və ayrı-seçkilikdir.", distractors:["Bütün dinlərə bərabər münasibətdir.","Xristianlara qarşı ayrı-seçkilikdir.","Dini tolerantlıq siyasətidir."]},
+      {id:84, q:"Xristianlığın əsas din xadimi kimdir?", correct:"İsa Məsih.", distractors:["Musa peyğəmbər.","Məhəmməd peyğəmbər.","Zərdüşt."]},
+      {id:85, q:"Hinduizmdə Brahma kimdir?", correct:"Yaradan tanrıdır.", distractors:["Məhvedən tanrıdır (Şiva).","Qoruyan tanrıdır (Vişnu).","İlk peyğəmbərdir."]},
+      {id:86, q:"ABŞ-da “əridən qazan” siyasətinin əsas məqsədi nədir?", correct:"Vahid milli kimliyin formalaşdırılması.", distractors:["Etnik icmaların tam ayrılması.","Mədəni müxtəlifliyin qadağan edilməsi üçün aparteid qurmaq.","Miqrasiyanı tam dayandırmaq."]},
+      {id:87, q:"Angela Merkel multikulturalizmin Almaniyada iflasını nə ilə izah edirdi?", correct:"İnteqrasiyanın uğursuzluğu ilə.", distractors:["Mədəniyyətlərarası dialoqun artıq olması ilə.","Azlıqlara hüquq verilməməsi ilə.","İnteqrasiyanın həddən artıq uğurlu olması ilə."]},
+      {id:88, q:"Multikulturalizm cəmiyyətə nə qazandırır?", correct:"Sosial sabitlik və harmoniyanı.", distractors:["Etnik qarşıdurmanın qaçılmazlığını.","Mədəni izolyasiyanı.","Hüquqi bərabərsizliyi."]},
+      {id:89, q:"Etnik müxtəliflik hansı modeldə daha yaxşı tənzimlənir?", correct:"Multikulturalizm modelində.", distractors:["Aparteid modelində.","Assimilyasiya modelində.","İzolyasiya modelində."]},
+      {id:90, q:"Azərbaycanda multikulturalizm ən çox hansı dövrdə güclənmişdir?", correct:"Müstəqillik dövründə.", distractors:["Səfəvilər dövründə.","Antik dövrdə.","Yalnız orta əsrlərdə."]},
+      {id:91, q:"Multikulturalizmin uğursuzluğuna səbəb olan amillərdən biri hansıdır?", correct:"Ayrı-seçkilik.", distractors:["Hüquqi bərabərlik.","Tolerantlıq.","Mədəni dialoq."]},
+      {id:92, q:"Ümumdünya İnsan Hüquqları Bəyannaməsi nədən bəhs edir?", correct:"İnsan hüquq və azadlıqlarından.", distractors:["Yalnız vergi qanunlarından.","Yalnız hərbi müqavilələrdən.","Yalnız dini ayinlərdən."]},
+      {id:93, q:"Multikulturalizmə liberal yanaşmanın əsas mövzusu nədir?", correct:"Fərdi azadlıqlar.", distractors:["İrqi üstünlük.","Mədəni qadağalar.","İcma hüquqlarının ləğvi."]},
+      {id:94, q:"Multikulturalizmin kommunitar yanaşması nəyi önə çəkir?", correct:"Kollektiv dəyərləri.", distractors:["Yalnız fərdi maraqları.","Mədəniyyətlərin ləğvini.","İnteqrasiyanın dayandırılmasını."]},
+      {id:95, q:"Zərdüştiliyin müqəddəs kitabı hansıdır?", correct:"Avesta.", distractors:["Tövrat.","İncil.","Qurani-Kərim."]},
+      {id:96, q:"İrqi ayrı-seçkiliyin ləğvi haqqında Konvensiya nədən bəhs edir?", correct:"İrqi diskriminasiyanın qadağan edilməsindən.", distractors:["Miqrasiyanın məcburi dayandırılmasından.","Bir dilli təhsil sistemindən.","Dini ayrı-seçkiliyin legitimləşdirilməsindən."]},
+      {id:97, q:"Multikulturalizmin əsaslı şəkildə dərk edilməsinə kömək edən elmlər hansılardır?", correct:"Fəlsəfə, sosiologiya, politologiya.", distractors:["Riyaziyyat, fizika, astronomiya.","Tibb, anatomiya, genetika.","Geologiya, meteorologiya, okeanologiya."]},
+      {id:98, q:"Multikulturalizm siyasəti nəyi təmin edir?", correct:"Mədəni hüquqların qorunmasını.", distractors:["Mədəni hüquqların ləğvini.","Azlıqların hüquqsuzlaşdırılmasını.","Etnik qrupların deportasiyasını."]},
+      {id:99, q:"Kanadanın multikulturalizm modeli necə adlanır?", correct:"Rəsmi multikulturalizm modeli.", distractors:["Aparteid modeli.","İzolyasiya modeli.","Assimilyasiya modeli."]},
+      {id:100, q:"Azərbaycanda multikulturalizm dövlət siyasəti kimi kimin dövründə formalaşmışdır?", correct:"Heydər Əliyevin dövründə.", distractors:["Nadir şah dövründə.","I Pyotr dövründə.","Roma imperatorları dövründə."]}
+    ];
+
+    // ====== App State ======
+    let mode = "practice"; // practice | exam
+    let idx = 0;
+
+    // sessionQuestions: shuffled questions + shuffled options per question
+    let session = []; // {id, q, options, correctIndex, userIndex}
+
+    function buildSession(){
+      const base = shuffle(QUESTIONS); // shuffle questions
+      session = base.map(q=>{
+        const all = [q.correct, ...q.distractors];
+        const opts = shuffle(all);
+        const correctIndex = opts.indexOf(q.correct);
+        return { id:q.id, q:q.q, options:opts, correctIndex, userIndex:null };
+      });
+      idx = 0;
+      clearSearchUI();
+      render();
+      renderReview();
+      updateCounts();
+    }
+
+    function setStatus(text){ $("statusText").textContent = text; }
+
+    function counts(){
+      let c=0,w=0;
+      for(const it of session){
+        if(it.userIndex === null) continue;
+        if(it.userIndex === it.correctIndex) c++; else w++;
+      }
+      return {c,w};
+    }
+
+    function updateCounts(){
+      const {c,w} = counts();
+      $("correctCount").textContent = c;
+      $("wrongCount").textContent = w;
+    }
+
+    function render(){
+      const total = session.length;
+      $("qTotal").textContent = total;
+      $("qIndex").textContent = (idx+1);
+      $("modeTag").textContent = (mode==="practice" ? "Məşq" : "İmtahan");
+
+      const it = session[idx];
+      $("qId").textContent = it.id;
+      $("questionText").textContent = it.q;
+
+      // progress: answered count
+      const answered = session.filter(x=>x.userIndex!==null).length;
+      const pct = Math.round((answered/total)*100);
+      $("bar").style.width = pct + "%";
+
+      // options
+      const wrap = $("options");
+      wrap.innerHTML = "";
+
+      for(let i=0;i<4;i++){
+        const opt = document.createElement("div");
+        opt.className = "opt";
+        opt.tabIndex = 0;
+        opt.dataset.i = i;
+
+        const badge = document.createElement("div");
+        badge.className = "badge";
+        badge.textContent = LETTERS[i];
+
+        const txt = document.createElement("div");
+        txt.className = "txt";
+        txt.textContent = it.options[i];
+
+        opt.appendChild(badge);
+        opt.appendChild(txt);
+
+        opt.addEventListener("click", ()=>choose(i));
+        opt.addEventListener("keydown",(e)=>{
+          if(e.key==="Enter" || e.key===" "){ e.preventDefault(); choose(i); }
+        });
+
+        wrap.appendChild(opt);
+      }
+
+      paint();
+
+      // hint box
+      $("hintBox").style.display = "none";
+      $("hintBox").textContent = "";
+
+      $("prevBtn").disabled = (idx===0);
+      $("nextBtn").textContent = (idx===total-1 ? "Son sual →" : "Növbəti →");
+
+      if(mode==="exam"){
+        setStatus("İmtahan rejimi: cavabı seç, sonra növbəti suala keç.");
+      }else{
+        setStatus("Məşq rejimi: cavabdan sonra doğru/yanlış dərhal görünəcək.");
+      }
+    }
+
+    function paint(){
+      const it = session[idx];
+      const nodes = [...$("options").querySelectorAll(".opt")];
+      nodes.forEach(n=>n.classList.remove("selected","correct","wrong"));
+
+      if(it.userIndex !== null){
+        nodes[it.userIndex]?.classList.add("selected");
+        if(mode==="practice"){
+          nodes[it.correctIndex]?.classList.add("correct");
+          if(it.userIndex !== it.correctIndex){
+            nodes[it.userIndex]?.classList.add("wrong");
+          }
+        }
+      }
+    }
+
+    function choose(i){
+      const it = session[idx];
+      it.userIndex = i;
+
+      if(mode==="practice"){
+        const ok = (i===it.correctIndex);
+        $("hintBox").style.display = "block";
+        $("hintBox").textContent = ok
+          ? "✅ Doğrudur! Davam et."
+          : `❌ Yanlışdır. Doğru cavab: ${LETTERS[it.correctIndex]} — ${it.options[it.correctIndex]}`;
+      }else{
+        $("hintBox").style.display = "none";
+      }
+
+      paint();
+      updateCounts();
+      renderReview();
+    }
+
+    function jumpToSessionIndex(i){
+      idx = Math.max(0, Math.min(session.length-1, i));
+      render();
+      window.scrollTo({top:0, behavior:"smooth"});
+    }
+
+    function renderReview(){
+      const list = $("reviewList");
+      list.innerHTML = "";
+
+      const wrongs = session
+        .filter(it=>it.userIndex !== null && it.userIndex !== it.correctIndex)
+        .slice(0, 60);
+
+      if(wrongs.length===0){
+        const div = document.createElement("div");
+        div.className = "item";
+        div.style.cursor="default";
+        div.innerHTML = `<div class="t">Hələlik səhv yoxdur ✅</div><div class="muted">Yanlış etdiyin suallar burada görünəcək.</div>`;
+        list.appendChild(div);
+        return;
+      }
+
+      wrongs.forEach(it=>{
+        const div = document.createElement("div");
+        div.className = "item";
+        div.innerHTML = `
+          <div class="t">Sual ID #${it.id}</div>
+          <div class="muted">${it.q}</div>
+          <div style="margin-top:8px" class="small">
+            Sənin cavabın: <b>${LETTERS[it.userIndex]}</b> — ${it.options[it.userIndex]}<br/>
+            Doğru cavab: <b>${LETTERS[it.correctIndex]}</b> — ${it.options[it.correctIndex]}
+          </div>
+        `;
+        div.addEventListener("click", ()=>{
+          const targetIndex = session.findIndex(s=>s.id===it.id);
+          if(targetIndex>=0) jumpToSessionIndex(targetIndex);
+        });
+        list.appendChild(div);
+      });
+    }
+
+    function next(){
+      if(idx < session.length-1){ idx++; render(); }
+      else { finish(); }
+    }
+    function prev(){
+      if(idx>0){ idx--; render(); }
+    }
+
+    function finish(){
+      const {c,w} = counts();
+      const total = session.length;
+      const unanswered = session.filter(it=>it.userIndex===null).length;
+      const pct = Math.round((c/total)*100);
+
+      alert(
+        `${mode==="exam" ? "İmtahan" : "Məşq"} nəticəsi:\n\nDoğru: ${c}\nYanlış: ${w}\nBoş: ${unanswered}\n\nFaiz: ${pct}%`
+      );
+    }
+
+    function toggleTheme(){
+      const root = document.documentElement;
+      const cur = root.getAttribute("data-theme") || "dark";
+      const next = (cur==="dark" ? "light" : "dark");
+      root.setAttribute("data-theme", next);
+      $("themeBtn").textContent = (next==="dark" ? "🌙 Tema" : "☀️ Tema");
+      localStorage.setItem("mk_theme", next);
+    }
+
+    function toggleMode(){
+      mode = (mode==="practice" ? "exam" : "practice");
+      $("modeBtn").textContent = (mode==="practice" ? "Məşq" : "İmtahan");
+      $("modeTag").textContent = (mode==="practice" ? "Məşq" : "İmtahan");
+      render();
+    }
+
+    function resetAll(){
+      if(!confirm("Test sıfırlansın? Bütün cavablar silinəcək.")) return;
+      buildSession();
+    }
+
+    // ====== Search ======
+    function clearSearchUI(){
+      $("searchMeta").textContent = "Axtarış nəticələri burada görünəcək.";
+      $("searchResults").innerHTML = "";
+    }
+
+    function escapeHtml(s){
+      return s.replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;");
+    }
+
+    function runSearch(){
+      const q = $("searchInput").value.trim();
+      const box = $("searchResults");
+      box.innerHTML = "";
+
+      if(!q){
+        clearSearchUI();
+        return;
+      }
+
+      // number search (ID)
+      const num = Number(q);
+      let matches = [];
+
+      if(Number.isInteger(num) && num>=1 && num<=100){
+        const i = session.findIndex(it=>it.id===num);
+        if(i>=0) matches = [i];
+      } else {
+        const needle = q.toLowerCase();
+        matches = session
+          .map((it,i)=>({it,i}))
+          .filter(x=>{
+            return x.it.q.toLowerCase().includes(needle)
+              || x.it.options.some(o=>o.toLowerCase().includes(needle));
+          })
+          .map(x=>x.i);
+      }
+
+      if(matches.length===0){
+        $("searchMeta").textContent = `Nəticə tapılmadı: "${q}"`;
+        return;
+      }
+
+      $("searchMeta").textContent = `Tapıldı: ${matches.length} nəticə. (toxun → sualı aç)`;
+
+      matches.slice(0, 50).forEach(i=>{
+        const it = session[i];
+        const div = document.createElement("div");
+        div.className = "item";
+        div.innerHTML = `
+          <div class="t">Sual ID #${it.id} <span class="tag">Sıra: ${i+1}/100</span></div>
+          <div class="muted">${escapeHtml(it.q)}</div>
+        `;
+        div.addEventListener("click", ()=>jumpToSessionIndex(i));
+        box.appendChild(div);
+      });
+
+      // jump to first match
+      jumpToSessionIndex(matches[0]);
+    }
+
+    // ====== Keyboard shortcuts ======
+    window.addEventListener("keydown",(e)=>{
+      const k = e.key.toUpperCase();
+      const i = LETTERS.indexOf(k);
+      if(i>=0){
+        choose(i);
+      }else if(e.key==="ArrowRight"){
+        next();
+      }else if(e.key==="ArrowLeft"){
+        prev();
+      }
+    });
+
+    $("nextBtn").addEventListener("click", next);
+    $("prevBtn").addEventListener("click", prev);
+    $("finishBtn").addEventListener("click", finish);
+    $("themeBtn").addEventListener("click", toggleTheme);
+    $("modeBtn").addEventListener("click", toggleMode);
+    $("resetBtn").addEventListener("click", resetAll);
+
+    $("searchBtn").addEventListener("click", runSearch);
+    $("clearSearchBtn").addEventListener("click", ()=>{
+      $("searchInput").value = "";
+      clearSearchUI();
+    });
+    $("searchInput").addEventListener("keydown",(e)=>{
+      if(e.key==="Enter") runSearch();
+    });
+
+    // init theme
+    (function init(){
+      const saved = localStorage.getItem("mk_theme");
+      if(saved) document.documentElement.setAttribute("data-theme", saved);
+      $("themeBtn").textContent = ((document.documentElement.getAttribute("data-theme")||"dark")==="dark" ? "🌙 Tema" : "☀️ Tema");
+      buildSession();
+    })();
+  </script>
+</body>
+</html>
